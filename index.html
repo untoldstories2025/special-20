@@ -382,9 +382,15 @@ loveBtn.onclick = () => {
     lovePopup.style.display = "flex";
 };
 
-// Quiz
-function answer(correct) {
-    quizResult.innerHTML = correct ? "Correct 😍 You know us so well!" : "Oops 😜 Try again!";
+function answer(button, correct) {
+    const container = button.parentElement;
+    const result = container.querySelector(".quizResult");
+
+    result.innerHTML = correct 
+        ? "Correct 😍 You know us so well!" 
+        : "Oops 😜 Try again!";
+
+    result.style.color = correct ? "green" : "red";
 }
 
 // Countdown
