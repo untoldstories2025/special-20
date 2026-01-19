@@ -214,6 +214,8 @@ footer {
 
 <section>
 <h2>Mini Love Quiz 💘</h2>
+<h3 id="scoreBoard">Score: 0 / 10 💖</h3>
+
 <p>Where was our first trip together?</p>
 <div class="quiz">
 <button onclick="answer(this, true)">Jodhpur </button>
@@ -382,16 +384,37 @@ loveBtn.onclick = () => {
     lovePopup.style.display = "flex";
 };
 
+let score = 0;
+let totalQuestions = 10;
+
 function answer(button, correct) {
     const container = button.parentElement;
     const result = container.querySelector(".quizResult");
 
-    result.innerHTML = correct 
-        ? "Correct 😍 You know us so well!" 
-        : "Oops 😜 Try again!";
+    // prevent multiple clicks
+    if (container.dataset.answered) return;
+    container.dataset.answered = true;
 
-    result.style.color = correct ? "green" : "red";
+    if (correct) {
+        score++;
+        result.innerHTML = "Correct 😍 You know me so well!";
+        result.style.color = "green";
+    } else {
+        result.innerHTML = "Oops 😜 Try again!";
+        result.style.color = "red";
+    }
+
+    document.getElementById("scoreBoard").innerHTML =
+        `Score: ${score} / ${totalQuestions} 💖`;
+
+    // 🎁 Show reward if all correct
+    if (score === totalQuestions) {
+        setTimeout(() => {
+            rewardPopup.style.display = "flex";
+        }, 600);
+    }
 }
+
 
 // Countdown
 const startDate = new Date("January 20, 2025").getTime();
@@ -412,6 +435,18 @@ function triggerVomit() {
     setTimeout(() => vomit.style.animation = "none", 1000);
 }
 </script>
+
+<!-- 🎁 Reward Popup -->
+<div class="popup" id="rewardPopup">
+  <div class="popup-content">
+    <h2>🎉 Congratulations Bubbu! 🎉</h2>
+    <p>
+      You know Guggu better than anyone 😍💖  
+      Your reward is unlimited kisses, hugs & lifetime love ❤️  
+    </p>
+    <button onclick="rewardPopup.style.display='none'">Close 💝</button>
+  </div>
+</div>
 
 </body>
 </html>
