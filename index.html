@@ -13,6 +13,12 @@ body {
     overflow-x: hidden;
     color: #333;
 }
+    <div id="intro">
+  <h1>Guggu ❤️ Bubbu</h1>
+</div>
+
+<div id="giftBtn">🎁</div>
+
 
 header {
     text-align: center;
@@ -43,7 +49,35 @@ h2 { color: #ff4081; }
     box-shadow: 0 10px 25px rgba(255,0,100,0.5);
 }
 
-/* Floating Hearts */
+.caption { font-style: italic; }
+
+/* Funny Cards */
+.fun-card {
+    background: #fff0f5;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.fun-card:hover { background: #ffe4ec; transform: scale(1.02); }
+.secret { display: none; color: #ff4081; font-weight: bold; }
+
+/* Vomit */
+#vomit {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    font-size: 40px;
+    transform: translateX(-50%);
+}
+
+@keyframes drop {
+    from { top: -50px; }
+    to { top: 90%; }
+}
+
+/* Floating hearts */
 .heart {
     position: fixed;
     bottom: -20px;
@@ -51,13 +85,12 @@ h2 { color: #ff4081; }
     animation: floatUp 8s linear infinite;
     opacity: 0.7;
 }
-
 @keyframes floatUp {
     from { transform: translateY(0); }
     to { transform: translateY(-120vh); }
 }
 
-/* Fullscreen Image */
+/* Fullscreen Viewer */
 #viewer {
     position: fixed;
     inset: 0;
@@ -67,14 +100,13 @@ h2 { color: #ff4081; }
     align-items: center;
     z-index: 999;
 }
-
 #viewer img {
     max-width: 90%;
     max-height: 90%;
     border-radius: 15px;
 }
 
-/* Floating Buttons */
+/* Floating buttons */
 .fab {
     position: fixed;
     right: 15px;
@@ -84,9 +116,7 @@ h2 { color: #ff4081; }
     padding: 15px;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    user-select: none;
 }
-
 #musicBtn { bottom: 20px; }
 #loveBtn { bottom: 90px; }
 
@@ -99,7 +129,6 @@ h2 { color: #ff4081; }
     justify-content: center;
     align-items: center;
 }
-
 .popup-content {
     background: white;
     padding: 25px;
@@ -119,9 +148,65 @@ h2 { color: #ff4081; }
     cursor: pointer;
 }
 
-.countdown {
-    margin-top: 10px;
+footer {
+    text-align: center;
+    background: #ff85a2;
+    color: white;
+    padding: 20px;
 }
+
+.countdown { margin-top: 10px; }
+
+/* Intro Animation */
+#intro {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg,#ff85a2,#ffd1dc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeOut 2s ease forwards;
+    animation-delay: 3s;
+}
+#intro h1 {
+    font-size: 50px;
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Fireworks */
+.firework {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: gold;
+    animation: explode 1.2s ease-out forwards;
+}
+@keyframes explode {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(6); opacity: 0; }
+}
+
+/* Hidden Gift Button */
+#giftBtn {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    font-size: 20px;
+    opacity: 0.15;
+    cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -134,22 +219,74 @@ h2 { color: #ff4081; }
 </header>
 
 <section>
-<h2>First Trip</h2>
+<h2>Our Nicknames</h2>
+<p>You call me <b>Guggu</b>, I call you <b>Bubbu</b> but firstly we are — Babloo & Bablii 💕</p>
+</section>
+
+<section>
+<h2>Our Timeline</h2>
+<ul>
+<li>Met in college – 2022</li>
+<li>Friends – 2023</li>
+<li>Dating – 20 Jan 2025 ❤️</li>
+<li>First I Love You – 20 Jan 2025</li>
+<li>1st Anniversary – 20 Jan 2026 🎉</li>
+</ul>
+</section>
+
+<section>
+<h2>First Trip – Jodhpur & Jaisalmer</h2>
 <img src="https://github.com/user-attachments/assets/ec7aeb17-22e9-42f7-bb70-a874e1bc7e74" class="photo">
+<p class="caption">"Our trip was messy… but our memories were perfect."</p>
 </section>
 
 <section>
 <h2>Lake Memories</h2>
 <img src="https://github.com/user-attachments/assets/f7315369-e3bf-4366-8dfa-92c5892390a0" class="photo">
+<p class="caption">"This lake witnessed our friendship turning into love."</p>
 </section>
 
-<section class="quiz">
+<section>
+<h2>Crazy & Funny Moments (Click Me 😜)</h2>
+<div class="fun-card" onclick="toggleSecret('s1'); triggerVomit();">
+🤢 I vomited on your diku
+<div id="s1" class="secret">True love means still loving after THIS 😂❤️</div>
+</div>
+
+<div class="fun-card" onclick="toggleSecret('s2'); triggerVomit();">
+🎢 You vomited on the dragon ride
+<div id="s2" class="secret">We literally stopped the ride because of love sickness 🤣</div>
+</div>
+</section>
+
+<section>
+<h2>Why You Are My Person ❤️</h2>
+<p>You supported me without judging. You trusted me blindly. That’s when I knew you were meant for me.</p>
+</section>
+
+<section>
+<h2>Your Cute Habit 😭</h2>
+<p>You literally cry when I scold you… too sensitive, too pure, too precious.</p>
+</section>
+
+<section>
 <h2>Mini Love Quiz 💘</h2>
 <p>Where was our first trip together?</p>
+<div class="quiz">
 <button onclick="answer(true)">Jodhpur & Jaisalmer</button>
 <button onclick="answer(false)">Goa</button>
 <button onclick="answer(false)">Manali</button>
 <p id="quizResult"></p>
+</div>
+</section>
+
+<section>
+<h2>Anniversary Message 💌</h2>
+<p>
+Happy 1st Anniversary Bubbu ❤️  
+From Babloo & Bablii to Bubbu & Guggu, every moment with you is magic.  
+Let’s create a thousand more crazy memories together.
+</p>
 </section>
 
 <!-- Floating Buttons -->
@@ -158,7 +295,7 @@ h2 { color: #ff4081; }
 
 <!-- Fullscreen Viewer -->
 <div id="viewer" onclick="this.style.display='none'">
-    <img id="viewerImg">
+<img id="viewerImg">
 </div>
 
 <!-- Love Popup -->
@@ -170,9 +307,16 @@ h2 { color: #ff4081; }
 </div>
 </div>
 
+<div id="vomit">🤮</div>
+
+<footer>
+Made with ❤️ by Guggu
+</footer>
+
 <audio id="music" src="YOUR_SONG_URL.mp3"></audio>
 
 <script>
+
 // Floating hearts
 setInterval(() => {
     const heart = document.createElement("div");
@@ -193,7 +337,6 @@ document.querySelectorAll(".photo").forEach(img => {
 });
 
 // Music button
-const music = document.getElementById("music");
 musicBtn.onclick = () => {
     if (music.paused) music.play();
     else music.pause();
@@ -215,7 +358,45 @@ setInterval(() => {
     const days = Math.floor((Date.now() - startDate) / 86400000);
     countdown.innerHTML = `Together for <b>${days}</b> days ❤️`;
 }, 1000);
+
+// Secret toggle
+function toggleSecret(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+// Vomit animation
+function triggerVomit() {
+    vomit.style.animation = "drop 1s ease-in-out";
+    setTimeout(() => vomit.style.animation = "none", 1000);
+}
+
+// 🎆 Fireworks on Anniversary
+function launchFirework() {
+    const fw = document.createElement("div");
+    fw.className = "firework";
+    fw.style.left = Math.random() * 100 + "vw";
+    fw.style.top = Math.random() * 60 + "vh";
+    document.body.appendChild(fw);
+    setTimeout(() => fw.remove(), 1200);
+}
+
+function checkAnniversary() {
+    const today = new Date();
+    if (today.getDate() === 20 && today.getMonth() === 0) {
+        setInterval(launchFirework, 400);
+    }
+}
+checkAnniversary();
+
+// 🎁 Hidden Gift Easter Egg
+giftBtn.onclick = () => {
+    alert("🎉 Surprise Bubbu!\nYou are my forever madness, my heartbeat, my home ❤️\nI love you endlessly 😘");
+};
+
+// 💞 Intro auto hide handled by CSS animation
 </script>
+
 
 </body>
 </html>
