@@ -12,6 +12,20 @@ body {
     margin: 0;
     overflow-x: hidden;
     color: #333;
+
+ <section id="quizSection">
+<h2>💘 Love Quiz for Bubbu</h2>
+<p>Let’s see how much you know Guggu 😈</p>
+
+<div id="quizBox">
+    <h3 id="question"></h3>
+    <div id="options"></div>
+    <p id="progress"></p>
+</div>
+
+<button onclick="startQuiz()">Start Love Quiz 💕</button>
+</section>
+
 }
     <div id="intro">
   <h1>Guggu ❤️ Bubbu</h1>
@@ -403,6 +417,116 @@ giftBtn.onclick = () => {
 };
 
 // 💞 Intro auto hide handled by CSS animation
+
+// 💘 LOVE QUIZ GAME
+const quizData = [
+ {
+  q: "Where did we go for our first trip together?",
+  options: ["Mela", "Jodhpur", "Jaisalmer", "Udaipur"],
+  answer: 1
+ },
+ {
+  q: "What nickname do you call me?",
+  options: ["Bablii", "Guggu", "Baby", "Sweetu"],
+  answer: 1
+ },
+ {
+  q: "What nickname do I call you?",
+  options: ["Bubbu", "Babloo", "Bachaa", "King"],
+  answer: 0
+ },
+ {
+  q: "Where did we spend most evenings together?",
+  options: ["MCD", "College", "Lake", "My PG"],
+  answer: 2
+ },
+ {
+  q: "What funny thing happened to me once?",
+  options: ["I fell down", "I vomited on you 😜", "I got lost", "I cried"],
+  answer: 1
+ },
+ {
+  q: "What happened on the dragon ride?",
+  options: ["Ride stopped", "You screamed", "You vomited 🤣", "We fought"],
+  answer: 2
+ },
+ {
+  q: "When did we officially start dating?",
+  options: ["2023", "20 Jan 2025", "2024", "Feb 2025"],
+  answer: 1
+ },
+ {
+  q: "What makes you super emotional?",
+  options: ["Movies", "Food", "When I scold you ", "Music"],
+  answer: 2
+ },
+ {
+  q: "What do I love most about you?",
+  options: ["Your brain", "Your Diku", "Your heart", "Your eyes"],
+  answer: 2
+ },
+ {
+  q: "Who loves more?",
+  options: ["Me 😎", "You 😘", "Both equally ❤️", "Destiny"],
+  answer: 2
+ }
+];
+
+let currentQ = 0;
+let score = 0;
+
+function startQuiz() {
+    currentQ = 0;
+    score = 0;
+    document.querySelector("#quizBox").style.display = "block";
+    showQuestion();
+}
+
+function showQuestion() {
+    const q = quizData[currentQ];
+    question.innerHTML = q.q;
+    options.innerHTML = "";
+    progress.innerHTML = `Question ${currentQ + 1} / ${quizData.length}`;
+
+    q.options.forEach((opt, index) => {
+        const btn = document.createElement("button");
+        btn.innerText = opt;
+        btn.onclick = () => selectAnswer(index);
+        options.appendChild(btn);
+    });
+}
+
+function selectAnswer(selected) {
+    if (selected === quizData[currentQ].answer) {
+        score++;
+    }
+    currentQ++;
+    if (currentQ < quizData.length) {
+        showQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    let message = "";
+    if (score >= 8) {
+        message = "🏆 PERFECT LOVE MATCH! You win unlimited hugs & kisses 😘❤️";
+    } 
+    else if (score >= 5) {
+        message = "😊 Pretty good! You owe me a long tight hug 💕";
+    } 
+    else {
+        message = "😜 Aww! You need extra dates to know me better!";
+    }
+
+    quizBox.innerHTML = `
+        <h2>Your Score: ${score} / ${quizData.length}</h2>
+        <p>${message}</p>
+        <button onclick="startQuiz()">Play Again 🔁</button>
+    `;
+}
+
 </script>
 
 
