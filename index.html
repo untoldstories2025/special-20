@@ -10,6 +10,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #ffe4ec, #fff);
     margin: 0;
+    overflow-x: hidden;
     color: #333;
 }
 
@@ -26,31 +27,25 @@ section {
     padding: 25px;
 }
 
-h2 {
-    color: #ff4081;
-}
+h2 { color: #ff4081; }
 
 .photo {
     width: 100%;
     max-width: 450px;
     border-radius: 15px;
-    transition: 0.4s ease;
     cursor: pointer;
+    transition: 0.4s;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Hover effect */
 .photo:hover {
     transform: scale(1.07);
     box-shadow: 0 10px 25px rgba(255,0,100,0.5);
 }
 
-.caption {
-    font-style: italic;
-    margin-top: 10px;
-}
+.caption { font-style: italic; }
 
-/* Funny clickable cards */
+/* Funny Cards */
 .fun-card {
     background: #fff0f5;
     border-radius: 15px;
@@ -59,32 +54,92 @@ h2 {
     cursor: pointer;
     transition: 0.3s;
 }
+.fun-card:hover { background: #ffe4ec; transform: scale(1.02); }
+.secret { display: none; color: #ff4081; font-weight: bold; }
 
-.fun-card:hover {
-    background: #ffe4ec;
-    transform: scale(1.02);
-}
-
-.secret {
-    display: none;
-    margin-top: 10px;
-    color: #ff4081;
-    font-weight: bold;
-}
-
-/* Vomit Easter Egg */
+/* Vomit */
 #vomit {
     position: fixed;
     top: -50px;
     left: 50%;
     font-size: 40px;
     transform: translateX(-50%);
-    animation: none;
 }
 
 @keyframes drop {
     from { top: -50px; }
     to { top: 90%; }
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 8s linear infinite;
+    opacity: 0.7;
+}
+@keyframes floatUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-120vh); }
+}
+
+/* Fullscreen Viewer */
+#viewer {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+#viewer img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+}
+
+/* Floating buttons */
+.fab {
+    position: fixed;
+    right: 15px;
+    background: #ff4081;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+#musicBtn { bottom: 20px; }
+#loveBtn { bottom: 90px; }
+
+/* Popup */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.popup-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Quiz */
+.quiz button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    background: #ff85a2;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 footer {
@@ -94,25 +149,16 @@ footer {
     padding: 20px;
 }
 
-.countdown {
-    font-size: 18px;
-    margin-top: 10px;
-}
+.countdown { margin-top: 10px; }
 </style>
 </head>
 
 <body>
 
-<div id="intro">
-<h1>Guggu ❤️ Bubbu</h1>
-</div>
-
-<div id="giftBtn">🎁</div>
-
 <header>
-    <h1>Guggu ❤️ Bubbu</h1>
-    <p>Our Crazy, Sweet, Beautiful Story</p>
-    <div class="countdown" id="countdown"></div>
+<h1>Guggu ❤️ Bubbu</h1>
+<p>Our Crazy, Sweet, Beautiful Story</p>
+<div class="countdown" id="countdown"></div>
 </header>
 
 <section>
@@ -133,19 +179,18 @@ footer {
 
 <section>
 <h2>First Trip – Jodhpur & Jaisalmer</h2>
-<img src="https://github.com/user-attachments/assets/ec7aeb17-22e9-42f7-bb70-a874e1bc7e74" class="photo" loading="lazy">
+<img src="https://github.com/user-attachments/assets/ec7aeb17-22e9-42f7-bb70-a874e1bc7e74" class="photo">
 <p class="caption">"Our trip was messy… but our memories were perfect."</p>
 </section>
 
 <section>
 <h2>Lake Memories</h2>
-<img src="https://github.com/user-attachments/assets/f7315369-e3bf-4366-8dfa-92c5892390a0" class="photo" loading="lazy">
+<img src="https://github.com/user-attachments/assets/f7315369-e3bf-4366-8dfa-92c5892390a0" class="photo">
 <p class="caption">"This lake witnessed our friendship turning into love."</p>
 </section>
 
 <section>
 <h2>Crazy & Funny Moments (Click Me 😜)</h2>
-
 <div class="fun-card" onclick="toggleSecret('s1'); triggerVomit();">
 🤢 I vomited on your diku
 <div id="s1" class="secret">True love means still loving after THIS 😂❤️</div>
@@ -155,7 +200,6 @@ footer {
 🎢 You vomited on the dragon ride
 <div id="s2" class="secret">We literally stopped the ride because of love sickness 🤣</div>
 </div>
-
 </section>
 
 <section>
@@ -166,6 +210,17 @@ footer {
 <section>
 <h2>Your Cute Habit 😭</h2>
 <p>You literally cry when I scold you… too sensitive, too pure, too precious.</p>
+</section>
+
+<section>
+<h2>Mini Love Quiz 💘</h2>
+<p>Where was our first trip together?</p>
+<div class="quiz">
+<button onclick="answer(true)">Jodhpur </button>
+<button onclick="answer(false)">Udaipur</button>
+<button onclick="answer(false)">Jaisalmer</button>
+<p id="quizResult"></p>
+</div>
 </section>
 
 <section>
@@ -185,13 +240,32 @@ So today, on our special one-year milestone 🤍🧿 I just want to say thank yo
 </p>
 </section>
 
+<!-- Floating Buttons -->
+<div class="fab" id="musicBtn">🎵</div>
+<div class="fab" id="loveBtn">💌</div>
+
+<!-- Fullscreen Viewer -->
+<div id="viewer" onclick="this.style.display='none'">
+<img id="viewerImg">
+</div>
+
+<!-- Love Popup -->
+<div class="popup" id="lovePopup">
+<div class="popup-content">
+<h3>For My Bubbu ❤️</h3>
+<p>You are my safest place, my madness, my forever. I love you endlessly.</p>
+<button onclick="lovePopup.style.display='none'">Close</button>
+</div>
+</div>
+
 <div id="vomit">🤮</div>
 
 <footer>
 Made with ❤️ by Guggu
 </footer>
 
-<script>
+<audio id="music" src="YOUR_SONG_URL.mp3"></audio>
+
 <script>
 // Floating hearts
 setInterval(() => {
@@ -246,31 +320,6 @@ function triggerVomit() {
     vomit.style.animation = "drop 1s ease-in-out";
     setTimeout(() => vomit.style.animation = "none", 1000);
 }
-
-// 🎆 Fireworks on Anniversary
-function launchFirework() {
-    const fw = document.createElement("div");
-    fw.className = "firework";
-    fw.style.left = Math.random() * 100 + "vw";
-    fw.style.top = Math.random() * 60 + "vh";
-    document.body.appendChild(fw);
-    setTimeout(() => fw.remove(), 1200);
-}
-
-function checkAnniversary() {
-    const today = new Date();
-    if (today.getDate() === 20 && today.getMonth() === 0) {
-        setInterval(launchFirework, 400);
-    }
-}
-checkAnniversary();
-
-// 🎁 Hidden Gift Easter Egg
-giftBtn.onclick = () => {
-    alert("🎉 Surprise Bubbu!\nYou are my forever madness, my heartbeat, my home ❤️\nI love you endlessly 😘");
-};
-
-// 💞 Intro auto hide handled by CSS animation
 </script>
 
 </body>
