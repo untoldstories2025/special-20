@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guggu ❤️ Bubbu – Our Story</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #fff0f5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+    header {
+        text-align: center;
+        background: #ffb6c1;
+        color: white;
+        padding: 2rem;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+    header p {
+        font-size: 1.2rem;
+    }
+    section {
+        padding: 2rem;
+        max-width: 900px;
+        margin: auto;
+    }
+    h2 {
+        color: #ff69b4;
+        margin-top: 1.5rem;
+        font-size: 1.8rem;
+        border-bottom: 2px solid #ffb6c1;
+        display: inline-block;
+        padding-bottom: 0.3rem;
+    }
+    .photo {
+        display: block;
+        margin: 1rem auto;
+        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+    .caption {
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        color: #555;
+    }
+    .fun-fact {
+        background: #ffe4e1;
+        padding: 1rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+        color: #333;
+    }
+    footer {
+        text-align: center;
+        background: #ffb6c1;
+        color: white;
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+    .countdown {
+        font-size: 1.3rem;
+        margin: 1rem 0;
+        color: #ff1493;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Guggu ❤️ Bubbu</h1>
+    <p>Our Crazy, Sweet, Beautiful Story</p>
+    <div class="countdown" id="countdown"></div>
+</header>
+
+<section>
+    <h2>Our Nicknames</h2>
+    <p>He calls me <strong>Guggu</strong>, I call him <strong>Bubbu</strong>. Before dating, we used to call each other <strong>Babloo & Bablii</strong> 💕</p>
+    <p class="caption">"From Babloo & Bablii to Guggu & Bubbu – our hearts just grew closer, one day at a time."</p>
+</section>
+
+<section>
+    <h2>Our Timeline</h2>
+    <ul>
+        <li>Met: 2022 (college)</li>
+        <li>Became friends: 2023</li>
+        <li>Started dating: 20 Jan 2025 ❤️</li>
+        <li>First "I love you": 20 Jan 2025</li>
+        <li>1st Anniversary: 20 Jan 2026 🎉</li>
+    </ul>
+    <p class="caption">"From strangers to friends to partners in crime – every step with you has been magical."</p>
+</section>
+
+<section>
+    <h2>First Trip Together – Jodhpur & Jaisalmer</h2>
+    <img src="images/trip.jpg" alt="Trip Photo" class="photo">
+    <p class="caption">"Even in the messiest moments, we create our little world together. Our trip was crazy, but our memories were perfect."</p>
+</section>
+
+<section>
+    <h2>Lake Memories</h2>
+    <img src="images/lake.jpg" alt="Lake Photo" class="photo">
+    <p class="caption">"It was at this quiet lake that we discovered the magic of us. Books, laughs, and little glances… this is where it all started."</p>
+</section>
+
+<section>
+    <h2>Crazy & Funny Moments</h2>
+    <div class="fun-fact">1️⃣ I vomited on his diku during fun times 😅</div>
+    <div class="fun-fact">2️⃣ At the mela, he vomited on the dragon swing ride – we had to stop it 😂</div>
+    <p class="caption">"Life with you is never boring – even vomiting turns into the best memories!"</p>
+</section>
+
+<section>
+    <h2>When I Realized You’re the One</h2>
+    <p>Even when I shared about my ex, he never judged me. He supported, motivated, and trusted me blindly.</p>
+    <p class="caption">"Your heart is pure, your trust unshakable… that’s when I knew you were meant for me."</p>
+</section>
+
+<section>
+    <h2>Cute Habits I Love</h2>
+    <p>He can’t see me angry – literally cries if I scold him 😭. So sensitive, loving, and gentle 💕</p>
+    <p class="caption">"Your sweetness melts my heart every single day. How did I get so lucky to call you mine?"</p>
+</section>
+
+<section>
+    <h2>Anniversary Message</h2>
+    <p>"Happy 1st Anniversary, Bubbu ❤️ Every crazy, messy, funny, and beautiful moment with you is my favorite. From Babloo & Bablii to Guggu & Bubbu, I can’t wait to make a thousand more memories with you. Here’s to us, always and forever."</p>
+</section>
+
+<section>
+    <h2>Our Song</h2>
+    <audio controls>
+        <source src="audio/oursong.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</section>
+
+<footer>
+    Made with ❤️ for Bubbu by Guggu
+</footer>
+
+<script>
+    // Countdown Timer - Days since 20 Jan 2025
+    const startDate = new Date("January 20, 2025 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = now - startDate;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        countdownEl.innerHTML = `We've been together for <strong>${days} days</strong> ❤️`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
+</html>
