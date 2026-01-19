@@ -2,77 +2,105 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Guggu ❤️ Bubbu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guggu ❤️ Bubbu – Our Story</title>
+
 <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #fff0f5;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-    }
-    header {
-        text-align: center;
-        background: #ffb6c1;
-        color: white;
-        padding: 2rem;
-    }
-    header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-    }
-    header p {
-        font-size: 1.2rem;
-    }
-    section {
-        padding: 2rem;
-        max-width: 900px;
-        margin: auto;
-    }
-    h2 {
-        color: #ff69b4;
-        margin-top: 1.5rem;
-        font-size: 1.8rem;
-        border-bottom: 2px solid #ffb6c1;
-        display: inline-block;
-        padding-bottom: 0.3rem;
-    }
-    .photo {
-        display: block;
-        margin: 1rem auto;
-        max-width: 100%;
-        border-radius: 15px;
-        box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-    }
-    .caption {
-        text-align: center;
-        font-style: italic;
-        margin-bottom: 1.5rem;
-        color: #555;
-    }
-    .fun-fact {
-        background: #ffe4e1;
-        padding: 1rem;
-        border-radius: 10px;
-        margin: 1rem 0;
-        color: #333;
-    }
-    footer {
-        text-align: center;
-        background: #ffb6c1;
-        color: white;
-        padding: 2rem;
-        margin-top: 2rem;
-    }
-    .countdown {
-        font-size: 1.3rem;
-        margin: 1rem 0;
-        color: #ff1493;
-    }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe4ec, #fff);
+    margin: 0;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    background: #ff85a2;
+    color: white;
+    padding: 30px;
+}
+
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+}
+
+h2 {
+    color: #ff4081;
+}
+
+.photo {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    transition: 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Hover effect */
+.photo:hover {
+    transform: scale(1.07);
+    box-shadow: 0 10px 25px rgba(255,0,100,0.5);
+}
+
+.caption {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Funny clickable cards */
+.fun-card {
+    background: #fff0f5;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fun-card:hover {
+    background: #ffe4ec;
+    transform: scale(1.02);
+}
+
+.secret {
+    display: none;
+    margin-top: 10px;
+    color: #ff4081;
+    font-weight: bold;
+}
+
+/* Vomit Easter Egg */
+#vomit {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    font-size: 40px;
+    transform: translateX(-50%);
+    animation: none;
+}
+
+@keyframes drop {
+    from { top: -50px; }
+    to { top: 90%; }
+}
+
+footer {
+    text-align: center;
+    background: #ff85a2;
+    color: white;
+    padding: 20px;
+}
+
+.countdown {
+    font-size: 18px;
+    margin-top: 10px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -82,85 +110,101 @@
 </header>
 
 <section>
-    <h2>Our Nicknames</h2>
-    <p>You call me <strong>Guggu</strong>, I call you <strong>Bubbu</strong>. Before dating, we used to call each other <strong>Babloo & Bablii</strong> 💕</p>
-    <p class="caption">"From Babloo & Bablii to Bubbu & Gugguu – our hearts just grew closer, one day at a time."</p>
+<h2>Our Nicknames</h2>
+<p>You call me <b>Guggu</b>, I call you <b>Bubbu</b> but firstly we are — Babloo & Bablii 💕</p>
 </section>
 
 <section>
-    <h2>Our Timeline</h2>
-    <ul>
-        <li>Met: 2022 (college)</li>
-        <li>Became friends: 2023</li>
-        <li>Started dating: 20 Jan 2025 ❤️</li>
-        <li>First "I love you": 20 Jan 2025</li>
-        <li>1st Anniversary: 20 Jan 2026 🎉</li>
-    </ul>
-    <p class="caption">"From strangers to friends to partners in crime – every step with you has been magical."</p>
+<h2>Our Timeline</h2>
+<ul>
+<li>Met in college – 2022</li>
+<li>Friends – 2023</li>
+<li>Dating – 20 Jan 2025 ❤️</li>
+<li>First I Love You – 20 Jan 2025</li>
+<li>1st Anniversary – 20 Jan 2026 🎉</li>
+</ul>
 </section>
 
 <section>
-    <h2>First Trip Together – Jodhpur & Jaisalmer</h2>
-    <img src="images/trip.jpg" alt="Trip Photo" class="photo">
-    <p class="caption">"Even in the messiest moments, we create our little world together. Our trip was crazy, but our memories were perfect."</p>
+<h2>First Trip – Jodhpur & Jaisalmer</h2>
+<img src="images/first_trip.jpeg" class="photo">
+<p class="caption">"Our trip was messy… but our memories were perfect."</p>
 </section>
 
 <section>
-    <h2>Lake Memories</h2>
-    <img src="images/lake.jpg" alt="Lake Photo" class="photo">
-    <p class="caption">"It was at this quiet lake that we discovered the magic of us. Books, laughs, and little glances… this is where it all started."</p>
+<h2>Lake Memories</h2>
+<img src="images/lake.jpeg" class="photo">
+<p class="caption">"This lake witnessed our friendship turning into love."</p>
 </section>
 
 <section>
-    <h2>Crazy & Funny Moments</h2>
-    <div class="fun-fact">1️⃣ I vomited on my diku during fun times 😅</div>
-    <div class="fun-fact">2️⃣ At the mela, you vomited on the dragon swing ride – we had to stop it 😂</div>
-    <p class="caption">"Life with you is never boring – even vomiting turns into the best memories!"</p>
+<h2>Crazy & Funny Moments (Click Me 😜)</h2>
+
+<div class="fun-card" onclick="toggleSecret('s1'); triggerVomit();">
+🤢 I vomited on your diku
+<div id="s1" class="secret">True love means still loving after THIS 😂❤️</div>
+</div>
+
+<div class="fun-card" onclick="toggleSecret('s2'); triggerVomit();">
+🎢 You vomited on the dragon ride
+<div id="s2" class="secret">We literally stopped the ride because of love sickness 🤣</div>
+</div>
+
 </section>
 
 <section>
-    <h2>When I Realized You’re the One</h2>
-    <p>Even when I shared about my ex, he never judged me. He supported, motivated, and trusted me blindly.</p>
-    <p class="caption">"Your heart is pure, your trust unshakable… that’s when I knew you were meant for me."</p>
+<h2>Why You Are My Person ❤️</h2>
+<p>You supported me without judging. You trusted me blindly. That’s when I knew you were meant for me.</p>
 </section>
 
 <section>
-    <h2>Cute Habits I Love</h2>
-    <p>You can’t see me angry – literally cries if I scold you 😭. So sensitive, loving, and gentle 💕</p>
-    <p class="caption">"Your sweetness melts my heart every single day. How did I get so lucky to call you mine?"</p>
+<h2>Your Cute Habit 😭</h2>
+<p>You literally cry when I scold you… too sensitive, too pure, too precious.</p>
 </section>
 
 <section>
-    <h2>Anniversary Message</h2>
-    <p>"Happy 1st Anniversary, Bubbu ❤️ Every crazy, messy, funny, and beautiful moment with you is my favorite. From Babloo & Bablii to Bubbu & Gugguu, I can’t wait to make a thousand more memories with you. Here’s to us, always and forever."</p>
+<h2>Anniversary Message 💌</h2>
+<p>
+Happy 1st Anniversary Bubbu ❤️  
+From Babloo & Bablii to Bubbu & Guggu, every moment with you is magic.  
+Let’s create a thousand more crazy memories together.
+</p>
 </section>
 
-<section>
-    <h2>Our Song</h2>
-    <audio controls>
-        <source src="audio/oursong.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-</section>
+<div id="vomit">🤮</div>
 
 <footer>
-    Made with ❤️ for Bubbu by Guggu
+Made with ❤️ by Guggu
 </footer>
 
 <script>
-    // Countdown Timer - Days since 20 Jan 2025
-    const startDate = new Date("January 20, 2025 00:00:00").getTime();
-    const countdownEl = document.getElementById("countdown");
+// Countdown
+const startDate = new Date("January 20, 2025").getTime();
+const countdownEl = document.getElementById("countdown");
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = now - startDate;
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        countdownEl.innerHTML = `We've been together for <strong>${days} days</strong> ❤️`;
-    }
+function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = now - startDate;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    countdownEl.innerHTML = `Together for <b>${days}</b> days ❤️`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+// Secret toggle
+function toggleSecret(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+// Vomit animation
+function triggerVomit() {
+    const vomit = document.getElementById("vomit");
+    vomit.style.animation = "drop 1s ease-in-out";
+    setTimeout(() => {
+        vomit.style.animation = "none";
+    }, 1000);
+}
 </script>
 
 </body>
