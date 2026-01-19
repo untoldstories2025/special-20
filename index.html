@@ -273,57 +273,5 @@ giftBtn.onclick = () => {
 // 💞 Intro auto hide handled by CSS animation
 </script>
 
-/* Intro Animation */
-#intro {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg,#ff85a2,#ffd1dc);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    animation: fadeOut 2s ease forwards;
-    animation-delay: 3s;
-}
-#intro h1 {
-    font-size: 50px;
-    color: white;
-    animation: pulse 1.5s infinite;
-}
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
-@keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
-}
-
-/* Fireworks */
-.firework {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: gold;
-    animation: explode 1.2s ease-out forwards;
-}
-@keyframes explode {
-    from { transform: scale(1); opacity: 1; }
-    to { transform: scale(6); opacity: 0; }
-}
-
-/* Hidden Gift Button */
-#giftBtn {
-    position: fixed;
-    left: 10px;
-    bottom: 10px;
-    font-size: 20px;
-    opacity: 0.15;
-    cursor: pointer;
-}
-
-</script>
-
 </body>
 </html>
