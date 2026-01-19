@@ -13,27 +13,6 @@ body {
     overflow-x: hidden;
     color: #333;
 
- <section id="quizSection">
-<h2>💘 Love Quiz for Bubbu</h2>
-<p>Let’s see how much you know Guggu 😈</p>
-
-<div id="quizBox">
-    <h3 id="question"></h3>
-    <div id="options"></div>
-    <p id="progress"></p>
-</div>
-
-<button onclick="startQuiz()">Start Love Quiz 💕</button>
-</section>
-
-}
-    <div id="intro">
-  <h1>Guggu ❤️ Bubbu</h1>
-</div>
-
-<div id="giftBtn">🎁</div>
-
-
 header {
     text-align: center;
     background: #ff85a2;
@@ -226,6 +205,12 @@ footer {
 
 <body>
 
+<div id="intro">
+  <h1>Guggu ❤️ Bubbu</h1>
+</div>
+
+<div id="giftBtn">🎁</div>
+
 <header>
 <h1>Guggu ❤️ Bubbu</h1>
 <p>Our Crazy, Sweet, Beautiful Story</p>
@@ -283,16 +268,19 @@ footer {
 <p>You literally cry when I scold you… too sensitive, too pure, too precious.</p>
 </section>
 
-<section>
-<h2>Mini Love Quiz 💘</h2>
-<p>Where was our first trip together?</p>
-<div class="quiz">
-<button onclick="answer(true)">Jodhpur & Jaisalmer</button>
-<button onclick="answer(false)">Goa</button>
-<button onclick="answer(false)">Manali</button>
-<p id="quizResult"></p>
-</div>
+<section id="quizSection">
+  <h2>💘 Love Quiz for Bubbu</h2>
+  <p>Let’s see how much you know Guggu 😈</p>
+
+  <div id="quizBox" style="display:none;">
+      <h3 id="question"></h3>
+      <div id="options"></div>
+      <p id="progress"></p>
+  </div>
+
+  <button id="startQuizBtn" onclick="startQuiz()">Start Love Quiz 💕</button>
 </section>
+
 
 <section>
 <h2>Anniversary Message 💌</h2>
