@@ -103,6 +103,12 @@ footer {
 
 <body>
 
+<div id="intro">
+<h1>Guggu ❤️ Bubbu</h1>
+</div>
+
+<div id="giftBtn">🎁</div>
+
 <header>
     <h1>Guggu ❤️ Bubbu</h1>
     <p>Our Crazy, Sweet, Beautiful Story</p>
@@ -186,18 +192,48 @@ Made with ❤️ by Guggu
 </footer>
 
 <script>
+<script>
+// Floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+}, 600);
+
+// Fullscreen image viewer
+document.querySelectorAll(".photo").forEach(img => {
+    img.onclick = () => {
+        viewerImg.src = img.src;
+        viewer.style.display = "flex";
+    };
+});
+
+// Music button
+musicBtn.onclick = () => {
+    if (music.paused) music.play();
+    else music.pause();
+};
+
+// Love popup
+loveBtn.onclick = () => {
+    lovePopup.style.display = "flex";
+};
+
+// Quiz
+function answer(correct) {
+    quizResult.innerHTML = correct ? "Correct 😍 You know us so well!" : "Oops 😜 Try again!";
+}
+
 // Countdown
 const startDate = new Date("January 20, 2025").getTime();
-const countdownEl = document.getElementById("countdown");
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const diff = now - startDate;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    countdownEl.innerHTML = `Together for <b>${days}</b> days ❤️`;
-}
-setInterval(updateCountdown, 1000);
-updateCountdown();
+setInterval(() => {
+    const days = Math.floor((Date.now() - startDate) / 86400000);
+    countdown.innerHTML = `Together for <b>${days}</b> days ❤️`;
+}, 1000);
 
 // Secret toggle
 function toggleSecret(id) {
@@ -207,12 +243,86 @@ function toggleSecret(id) {
 
 // Vomit animation
 function triggerVomit() {
-    const vomit = document.getElementById("vomit");
     vomit.style.animation = "drop 1s ease-in-out";
-    setTimeout(() => {
-        vomit.style.animation = "none";
-    }, 1000);
+    setTimeout(() => vomit.style.animation = "none", 1000);
 }
+
+// 🎆 Fireworks on Anniversary
+function launchFirework() {
+    const fw = document.createElement("div");
+    fw.className = "firework";
+    fw.style.left = Math.random() * 100 + "vw";
+    fw.style.top = Math.random() * 60 + "vh";
+    document.body.appendChild(fw);
+    setTimeout(() => fw.remove(), 1200);
+}
+
+function checkAnniversary() {
+    const today = new Date();
+    if (today.getDate() === 20 && today.getMonth() === 0) {
+        setInterval(launchFirework, 400);
+    }
+}
+checkAnniversary();
+
+// 🎁 Hidden Gift Easter Egg
+giftBtn.onclick = () => {
+    alert("🎉 Surprise Bubbu!\nYou are my forever madness, my heartbeat, my home ❤️\nI love you endlessly 😘");
+};
+
+// 💞 Intro auto hide handled by CSS animation
+</script>
+
+/* Intro Animation */
+#intro {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg,#ff85a2,#ffd1dc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeOut 2s ease forwards;
+    animation-delay: 3s;
+}
+#intro h1 {
+    font-size: 50px;
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Fireworks */
+.firework {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: gold;
+    animation: explode 1.2s ease-out forwards;
+}
+@keyframes explode {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(6); opacity: 0; }
+}
+
+/* Hidden Gift Button */
+#giftBtn {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    font-size: 20px;
+    opacity: 0.15;
+    cursor: pointer;
+}
+
 </script>
 
 </body>
